@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Flask DevOps Dashboard</title>
+    <title>Flask DevOps Dashboard - V9</title>
 
     <style>
         * {
@@ -19,13 +19,13 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #020617, #4c1d95);
+            background: linear-gradient(135deg, #020617, #0f766e);
             color: white;
             padding: 20px;
         }
 
         .container {
-            width: 700px;
+            width: 760px;
             max-width: 100%;
             text-align: center;
             background: rgba(255, 255, 255, 0.08);
@@ -36,14 +36,14 @@
         }
 
         h1 {
-            font-size: 46px;
+            font-size: 44px;
             margin-bottom: 12px;
         }
 
         .subtitle {
-            font-size: 19px;
+            font-size: 18px;
             color: #d1d5db;
-            margin-bottom: 35px;
+            margin-bottom: 28px;
         }
 
         .version {
@@ -52,7 +52,7 @@
             background: #22c55e;
             border-radius: 30px;
             font-weight: bold;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .services {
@@ -78,6 +78,45 @@
             color: #bbf7d0;
         }
 
+        .pipeline {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .pipeline h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #14b8a6;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .step-status {
+            margin-left: auto;
+            color: #86efac;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
         .status {
             padding: 15px;
             border-radius: 12px;
@@ -97,12 +136,16 @@
                 grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: 36px;
-            }
-
             .container {
                 padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .step {
+                font-size: 14px;
             }
         }
     </style>
@@ -115,11 +158,11 @@
         <h1>DevOps Dashboard 🚀</h1>
 
         <p class="subtitle">
-            Flask Application CI/CD Pipeline
+            Automated Flask CI/CD Deployment
         </p>
 
         <div class="version">
-            Version 8
+            Version 9
         </div>
 
         <div class="services">
@@ -141,12 +184,48 @@
 
         </div>
 
+        <div class="pipeline">
+
+            <h2>CI/CD Pipeline</h2>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>Git Push</div>
+                <div class="step-status">Completed ✓</div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>Run Tests</div>
+                <div class="step-status">Passed ✓</div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>Build Docker Image</div>
+                <div class="step-status">Built ✓</div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>Push to Docker Hub</div>
+                <div class="step-status">Pushed ✓</div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div>Deploy to EC2</div>
+                <div class="step-status">Deployed ✓</div>
+            </div>
+
+        </div>
+
         <div class="status">
             Deployment Successful 🚀
         </div>
 
         <div class="footer">
-            Flask + Docker + GitHub Actions
+            Flask + Docker + GitHub Actions + AWS EC2
         </div>
 
     </div>
