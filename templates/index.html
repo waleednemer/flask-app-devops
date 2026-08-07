@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Flask DevOps Dashboard - V9</title>
+    <title>Flask DevOps Dashboard - V10</title>
 
     <style>
         * {
@@ -19,13 +19,13 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #020617, #0f766e);
+            background: linear-gradient(135deg, #020617, #1d4ed8);
             color: white;
             padding: 20px;
         }
 
         .container {
-            width: 760px;
+            width: 780px;
             max-width: 100%;
             text-align: center;
             background: rgba(255, 255, 255, 0.08);
@@ -105,9 +105,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #14b8a6;
+            background: #3b82f6;
             border-radius: 50%;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         .step-status {
@@ -158,11 +159,11 @@
         <h1>DevOps Dashboard 🚀</h1>
 
         <p class="subtitle">
-            Automated Flask CI/CD Deployment
+            Automated Flask CI/CD Pipeline
         </p>
 
         <div class="version">
-            Version 9
+            Version 10
         </div>
 
         <div class="services">
@@ -179,7 +180,7 @@
 
             <div class="service">
                 <h3>GitHub</h3>
-                <p>Connected ✅</p>
+                <p>CI/CD Connected ✅</p>
             </div>
 
         </div>
@@ -214,18 +215,18 @@
 
             <div class="step">
                 <div class="step-number">5</div>
-                <div>Deploy to EC2</div>
-                <div class="step-status">Deployed ✓</div>
+                <div>Local Docker Deployment</div>
+                <div class="step-status">Running ✓</div>
             </div>
 
         </div>
 
         <div class="status">
-            Deployment Successful 🚀
+            Version 10 Deployed Successfully 🚀
         </div>
 
         <div class="footer">
-            Flask + Docker + GitHub Actions + AWS EC2
+            Flask + Docker + GitHub Actions + Docker Hub
         </div>
 
     </div>
