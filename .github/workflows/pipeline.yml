@@ -35,7 +35,6 @@ jobs:
         run: |
           python -c "from app import app; print('Flask application loaded successfully')"
 
-
   docker:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
@@ -60,30 +59,15 @@ jobs:
         run: |
           docker push "${{ secrets.DOCKER_USERNAME }}/flask-app-devops:latest"
 
-
   deploy:
-    name: Deploy to EC2
-    runs-on: ubuntu-latest
+    name: Deploy Locally
+    runs-on: self-hosted
     needs: docker
 
     steps:
-      - name: Deploy application to EC2
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/flask-app-devops
-
-            echo "Pulling latest Docker image..."
-            docker compose pull
-
-            echo "Starting updated application..."
-            docker compose up -d
-
-            echo "Deployment completed successfully!"
-
-            echo "Container status:"
-            docker compose ps
-
+      - name: Deploy with Docker Compose
+        run: |
+          cd ~/Documents/flask-app-devops
+          sudo docker compose pull
+          sudo docker compose up -d
+          sudo docker compose ps
