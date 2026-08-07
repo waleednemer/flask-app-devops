@@ -1,0 +1,7 @@
+services:
+  flask-app:
+    image: waleednemer/flask-app-devops:latest
+    container_name: flask-app-devops
+    ports:
+      - "5005:5005"
+    restart: unless-stopped
