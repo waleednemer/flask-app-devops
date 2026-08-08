@@ -4,137 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Flask DevOps Dashboard - V11</title>
+    <title>Flask DevOps Dashboard - V10</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #020617, #1d4ed8);
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            width: 780px;
+            max-width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        h1 {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #d1d5db;
+            margin-bottom: 28px;
+        }
+
+        .version {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #22c55e;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 22px 10px;
+            border-radius: 15px;
+        }
+
+        .service h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 14px;
+            color: #bbf7d0;
+        }
+
+        .pipeline {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .pipeline h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3b82f6;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-status {
+            margin-left: auto;
+            color: #86efac;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 600px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .step {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
 
-        <header>
-            <h1>DevOps Dashboard 🚀</h1>
+        <h1>DevOps Dashboard 🚀</h1>
 
-            <p class="subtitle">
-                Automated Flask CI/CD & Monitoring
-            </p>
+        <p class="subtitle">
+            Automated Flask CI/CD Pipeline
+        </p>
 
-            <div class="version">
-                Version 11
-            </div>
-        </header>
+        <div class="version">
+            Version 10
+        </div>
 
-
-        <!-- Services -->
-
-        <section class="services">
+        <div class="services">
 
             <div class="service">
-                <div class="icon">🐍</div>
                 <h3>Flask</h3>
-                <p>Running</p>
-                <span class="badge">● Online</span>
+                <p>Running ✅</p>
             </div>
 
             <div class="service">
-                <div class="icon">🐳</div>
                 <h3>Docker</h3>
-                <p>Containerized</p>
-                <span class="badge">● Running</span>
+                <p>Containerized ✅</p>
             </div>
 
             <div class="service">
-                <div class="icon">🔗</div>
                 <h3>GitHub</h3>
-                <p>CI/CD Connected</p>
-                <span class="badge">● Connected</span>
+                <p>CI/CD Connected ✅</p>
             </div>
 
-        </section>
+        </div>
 
-
-        <!-- CI/CD Pipeline -->
-
-        <section class="pipeline">
+        <div class="pipeline">
 
             <h2>CI/CD Pipeline</h2>
 
             <div class="step">
                 <div class="step-number">1</div>
-                <div class="step-name">Git Push</div>
+                <div>Git Push</div>
                 <div class="step-status">Completed ✓</div>
             </div>
 
             <div class="step">
                 <div class="step-number">2</div>
-                <div class="step-name">Run Tests</div>
+                <div>Run Tests</div>
                 <div class="step-status">Passed ✓</div>
             </div>
 
             <div class="step">
                 <div class="step-number">3</div>
-                <div class="step-name">Build Docker Image</div>
+                <div>Build Docker Image</div>
                 <div class="step-status">Built ✓</div>
             </div>
 
             <div class="step">
                 <div class="step-number">4</div>
-                <div class="step-name">Push to Docker Hub</div>
+                <div>Push to Docker Hub</div>
                 <div class="step-status">Pushed ✓</div>
             </div>
 
             <div class="step">
                 <div class="step-number">5</div>
-                <div class="step-name">Local Deployment</div>
+                <div>Local Docker Deployment</div>
                 <div class="step-status">Running ✓</div>
             </div>
 
-        </section>
-
-
-        <!-- Monitoring -->
-
-        <section class="monitoring">
-
-            <h2>Monitoring Stack</h2>
-
-            <div class="monitor-grid">
-
-                <div class="monitor">
-                    <h3>Prometheus</h3>
-                    <p>Metrics Collection</p>
-                    <span class="status-online">● Online</span>
-                </div>
-
-                <div class="monitor">
-                    <h3>Grafana</h3>
-                    <p>Monitoring Dashboard</p>
-                    <span class="status-online">● Online</span>
-                </div>
-
-                <div class="monitor">
-                    <h3>cAdvisor</h3>
-                    <p>Container Monitoring</p>
-                    <span class="status-online">● Online</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Deployment Status -->
-
-        <div class="deployment-status">
-            <strong>Deployment Successful 🚀</strong>
-            <span>All services are running</span>
         </div>
 
+        <div class="status">
+            Version 10 Deployed Successfully 🚀
+        </div>
 
-        <footer>
-            Flask + Docker + GitHub Actions + Docker Hub + Prometheus + Grafana
-        </footer>
+        <div class="footer">
+            Flask + Docker + GitHub Actions + Docker Hub
+        </div>
 
     </div>
 
